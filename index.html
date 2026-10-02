@@ -1,167 +1,2994 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="ONESTREET77 - Otomotif, Fashion, Sepatu & Tas. Gear Up Your Lifestyle." />
-  <title>ONESTREET77 | Ride • Style • Everyday</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --red:#ff1720; --red2:#c9000a; --black:#050505; --panel:#101010;
-      --line:#262626; --white:#f7f7f7; --muted:#a8a8a8;
-      --shadow:0 18px 50px rgba(0,0,0,.45);
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{font-family:Inter,Arial,sans-serif;background:var(--black);color:var(--white);overflow-x:hidden}
-    a{text-decoration:none;color:inherit}
-    button,input{font:inherit}
-    .topline{height:4px;background:linear-gradient(90deg,transparent,var(--red),#fff,var(--red),transparent)}
-    header{position:sticky;top:0;z-index:50;background:rgba(5,5,5,.93);backdrop-filter:blur(14px);border-bottom:1px solid #252525}
-    .nav{max-width:1280px;margin:auto;display:flex;align-items:center;gap:24px;padding:10px 20px}
-    .brand{display:flex;align-items:center;gap:10px;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:28px;font-style:italic;letter-spacing:-1px;white-space:nowrap}
-    .brand span{color:var(--red)}
-    .brand img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:1px solid #333}
-    nav{display:flex;gap:20px;margin-left:auto;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.7px}
-    nav a{color:#ddd;transition:.2s} nav a:hover{color:var(--red)}
-    .cart{border:1px solid #444;padding:9px 13px;border-radius:8px;font-size:13px;font-weight:800}
-    .hero{max-width:1280px;margin:0 auto;padding:42px 20px 20px;position:relative}
-    .hero:before{content:"";position:absolute;inset:0 20px auto;height:320px;background:radial-gradient(circle at 50% 25%,rgba(255,23,32,.18),transparent 62%);pointer-events:none}
-    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:stretch}
-    .hero-copy{min-height:380px;display:flex;flex-direction:column;justify-content:center;padding:34px;position:relative;overflow:hidden;border:1px solid #292929;border-radius:18px;background:linear-gradient(135deg,#101010 0%,#080808 65%,#160000 100%);box-shadow:var(--shadow)}
-    .hero-copy:after{content:"";position:absolute;width:500px;height:500px;border:2px solid rgba(255,23,32,.15);border-radius:50%;right:-220px;top:-180px}
-    .eyebrow{font-size:12px;letter-spacing:4px;color:#ddd;font-weight:800;margin-bottom:10px}
-    h1{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-size:clamp(54px,8vw,104px);line-height:.83;text-transform:uppercase;letter-spacing:-2px;max-width:700px}
-    h1 span{color:var(--red)}
-    .tagline{margin-top:20px;color:#d0d0d0;letter-spacing:4px;font-weight:700;font-size:13px}
-    .hero-actions{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 20px;border-radius:8px;font-weight:800;text-transform:uppercase;font-size:12px;letter-spacing:.8px;border:1px solid #444;cursor:pointer;transition:.2s}
-    .btn-red{background:var(--red);border-color:var(--red);color:#fff}.btn-red:hover{background:#ff3940;transform:translateY(-1px)}
-    .btn-dark{background:#111;color:#fff}.btn-dark:hover{border-color:var(--red);color:#fff}
-    .hero-visual{border-radius:18px;overflow:hidden;border:1px solid #292929;position:relative;min-height:380px;background:#090909}
-    .hero-visual img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9) contrast(1.05)}
-    .hero-badge{position:absolute;left:18px;bottom:18px;background:rgba(0,0,0,.78);border:1px solid #444;padding:12px 15px;border-radius:10px;font-size:12px;font-weight:800;letter-spacing:1px}
-    .hero-badge b{color:var(--red)}
-    .trust{max-width:1280px;margin:0 auto;padding:18px 20px 6px;display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
-    .trust-item{border-top:1px solid #2a2a2a;padding:14px 10px;text-align:center;font-size:11px;font-weight:800;letter-spacing:.6px;color:#d7d7d7;text-transform:uppercase}
-    .section{max-width:1280px;margin:0 auto;padding:52px 20px 10px}
-    .section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:20px}
-    .kicker{font-size:11px;letter-spacing:3px;color:var(--red);font-weight:900;text-transform:uppercase}
-    h2{font-family:'Barlow Condensed',sans-serif;font-size:46px;line-height:.9;text-transform:uppercase;font-style:italic;margin-top:5px}
-    .section-head p{color:#999;font-size:13px;max-width:480px;text-align:right}
-    .category-wrap{position:relative}
-    .products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-    .card{background:linear-gradient(180deg,#121212,#0a0a0a);border:1px solid #292929;border-radius:14px;overflow:hidden;position:relative;transition:.25s;box-shadow:0 8px 28px rgba(0,0,0,.25)}
-    .card:hover{transform:translateY(-5px);border-color:#555;box-shadow:0 15px 38px rgba(0,0,0,.45)}
-    .card-img{aspect-ratio:1/1;overflow:hidden;background:#181818;position:relative}
-    .card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:.35s}.card:hover .card-img img{transform:scale(1.06)}
-    .badge{position:absolute;left:10px;top:10px;background:var(--red);color:#fff;font-size:9px;font-weight:900;padding:5px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.5px}
-    .card-body{padding:14px}.card-cat{color:#999;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px}.card h3{font-size:14px;line-height:1.3;margin:5px 0 9px}.price{font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:800;color:#fff}.old{font-size:11px;color:#666;text-decoration:line-through;margin-left:6px;font-family:Inter,sans-serif;font-weight:500}.buy{display:flex;gap:8px;margin-top:12px}.buy a{flex:1;text-align:center;border:1px solid #3c3c3c;border-radius:7px;padding:9px 5px;font-size:10px;font-weight:800;text-transform:uppercase}.buy a:first-child{background:#111}.buy a:last-child{background:var(--red);border-color:var(--red)}
-    .arrow{position:absolute;top:45%;transform:translateY(-50%);z-index:3;width:38px;height:38px;border-radius:50%;border:1px solid #555;background:rgba(0,0,0,.85);color:#fff;cursor:pointer;font-size:20px}.prev{left:-16px}.next{right:-16px}.arrow:hover{background:var(--red);border-color:var(--red)}
-    .promo{max-width:1280px;margin:55px auto 0;padding:0 20px}.promo-box{border:1px solid #3a0a0d;border-radius:18px;background:linear-gradient(100deg,#170000,#090909 55%,#130000);padding:30px;display:flex;align-items:center;justify-content:space-between;gap:20px;position:relative;overflow:hidden}.promo-box:after{content:"77";position:absolute;right:20px;bottom:-65px;font-family:'Barlow Condensed';font-size:220px;font-style:italic;font-weight:900;color:rgba(255,23,32,.08)}.promo h3{font-family:'Barlow Condensed';font-size:38px;font-style:italic;text-transform:uppercase}.promo p{color:#aaa;margin-top:6px;font-size:13px}
-    .footer{margin-top:60px;border-top:1px solid #222;background:#080808}.footer-inner{max-width:1280px;margin:auto;padding:35px 20px;display:flex;justify-content:space-between;gap:20px;align-items:center}.footer p{color:#777;font-size:11px}.social{display:flex;gap:10px}.social a{border:1px solid #333;padding:9px 12px;border-radius:7px;font-size:11px;font-weight:800}
-    .modal{position:fixed;inset:0;background:rgba(0,0,0,.82);display:none;align-items:center;justify-content:center;z-index:100;padding:20px}.modal.show{display:flex}.modal-box{max-width:620px;width:100%;background:#101010;border:1px solid #444;border-radius:16px;padding:25px;position:relative}.close{position:absolute;right:15px;top:12px;background:none;color:#fff;border:0;font-size:24px;cursor:pointer}.modal-box h3{font-family:'Barlow Condensed';font-size:38px;font-style:italic}.modal-box p{color:#aaa;font-size:13px;line-height:1.7;margin-top:8px}.search{margin-top:18px;display:flex;gap:8px}.search input{flex:1;background:#080808;border:1px solid #444;color:#fff;padding:12px;border-radius:8px;outline:none}.search button{background:var(--red);color:#fff;border:0;border-radius:8px;padding:0 17px;font-weight:800}
-    @media(max-width:950px){.hero-grid{grid-template-columns:1fr}.hero-visual{min-height:300px}.products{grid-template-columns:repeat(2,minmax(0,1fr))}.trust{grid-template-columns:repeat(3,1fr)}nav{display:none}.section-head{align-items:start;flex-direction:column}.section-head p{text-align:left}.arrow{display:none}}
-    @media(max-width:560px){.nav{padding:8px 12px}.brand{font-size:24px}.cart{margin-left:auto}.hero{padding:20px 12px}.hero-copy{min-height:340px;padding:24px}.hero-visual{min-height:250px}.trust{padding:8px 12px;grid-template-columns:repeat(2,1fr)}.section{padding:42px 12px 5px}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.card-body{padding:10px}.card h3{font-size:12px}.price{font-size:20px}.buy a{font-size:9px;padding:8px 3px}.promo{padding:0 12px}.promo-box{padding:22px;display:block}.promo .btn{margin-top:15px}.footer-inner{padding:25px 12px;display:block}.social{margin-top:15px}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+content="ONESTREET77 - Otomotif, Fashion, Sepatu & Tas. Ride • Style • Everyday.">
+
+<title>ONESTREET77 | Ride • Style • Everyday</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   ONESTREET77 PRO
+   BLACK • RED • PREMIUM STREET STYLE
+========================================================= */
+
+:root{
+  --red:#ff1720;
+  --red2:#c9000a;
+  --black:#050505;
+  --panel:#101010;
+  --panel2:#151515;
+  --line:#292929;
+  --white:#f7f7f7;
+  --muted:#999;
+  --shadow:0 20px 60px rgba(0,0,0,.55);
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Inter,Arial,sans-serif;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(255,23,32,.08),transparent 35%),
+    var(--black);
+  color:var(--white);
+  overflow-x:hidden;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+button,
+input{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+img{
+  max-width:100%;
+}
+
+
+/* =========================================================
+   TOP LINE
+========================================================= */
+
+.topline{
+  height:4px;
+  background:
+  linear-gradient(
+    90deg,
+    transparent,
+    var(--red),
+    #fff,
+    var(--red),
+    transparent
+  );
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(5,5,5,.94);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid #242424;
+}
+
+.nav{
+  max-width:1320px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  gap:25px;
+  padding:10px 20px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:9px;
+
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:900;
+  font-size:29px;
+  font-style:italic;
+
+  letter-spacing:-1px;
+  white-space:nowrap;
+}
+
+.brand span{
+  color:var(--red);
+}
+
+.brand img{
+  width:43px;
+  height:43px;
+  object-fit:cover;
+  border-radius:50%;
+  border:1px solid #444;
+}
+
+nav{
+  display:flex;
+  gap:22px;
+  margin-left:auto;
+
+  font-size:12px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.8px;
+}
+
+nav a{
+  color:#ddd;
+  transition:.2s;
+}
+
+nav a:hover{
+  color:var(--red);
+}
+
+.cart{
+  border:1px solid #444;
+  background:#111;
+  color:white;
+
+  padding:10px 14px;
+  border-radius:8px;
+
+  font-size:12px;
+  font-weight:800;
+
+  transition:.2s;
+}
+
+.cart:hover{
+  border-color:var(--red);
+  background:var(--red);
+}
+
+
+/* =========================================================
+   HERO SLIDER
+========================================================= */
+
+.hero{
+  max-width:1320px;
+  margin:auto;
+  padding:30px 20px 15px;
+}
+
+.hero-slider{
+  position:relative;
+  overflow:hidden;
+
+  min-height:480px;
+
+  border:1px solid #292929;
+  border-radius:20px;
+
+  background:#080808;
+
+  box-shadow:var(--shadow);
+}
+
+.hero-track{
+  display:flex;
+  width:100%;
+
+  transition:
+    transform .7s cubic-bezier(.77,0,.18,1);
+}
+
+.hero-slide{
+  min-width:100%;
+  min-height:480px;
+
+  position:relative;
+  overflow:hidden;
+
+  display:flex;
+  align-items:center;
+}
+
+.hero-slide img{
+  position:absolute;
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  filter:
+    brightness(.48)
+    contrast(1.1)
+    saturate(.9);
+}
+
+.hero-slide:after{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,.9),
+      rgba(0,0,0,.45),
+      rgba(0,0,0,.15)
+    );
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+
+  max-width:650px;
+  padding:50px;
+}
+
+.eyebrow{
+  font-size:12px;
+  letter-spacing:4px;
+  color:#ddd;
+  font-weight:800;
+  margin-bottom:12px;
+}
+
+.hero-content h1{
+  font-family:'Barlow Condensed',sans-serif;
+
+  font-size:
+    clamp(55px,8vw,105px);
+
+  line-height:.82;
+
+  font-style:italic;
+  text-transform:uppercase;
+
+  letter-spacing:-3px;
+}
+
+.hero-content h1 span{
+  color:var(--red);
+}
+
+.hero-content p{
+  margin-top:20px;
+
+  color:#ddd;
+
+  font-size:14px;
+  line-height:1.7;
+
+  max-width:520px;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:10px;
+  margin-top:25px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding:13px 20px;
+
+  border-radius:8px;
+
+  border:1px solid #444;
+
+  font-size:11px;
+  font-weight:900;
+
+  text-transform:uppercase;
+  letter-spacing:.8px;
+
+  transition:.2s;
+}
+
+.btn-red{
+  background:var(--red);
+  border-color:var(--red);
+  color:white;
+}
+
+.btn-red:hover{
+  background:#ff3a41;
+  transform:translateY(-2px);
+}
+
+.btn-dark{
+  background:#111;
+  color:white;
+}
+
+.btn-dark:hover{
+  border-color:var(--red);
+}
+
+.slider-btn{
+  position:absolute;
+
+  top:50%;
+  transform:translateY(-50%);
+
+  z-index:5;
+
+  width:44px;
+  height:44px;
+
+  border-radius:50%;
+
+  border:1px solid #555;
+
+  background:rgba(0,0,0,.75);
+
+  color:white;
+
+  font-size:25px;
+
+  transition:.2s;
+}
+
+.slider-btn:hover{
+  background:var(--red);
+  border-color:var(--red);
+}
+
+.hero-prev{
+  left:18px;
+}
+
+.hero-next{
+  right:18px;
+}
+
+.hero-dots{
+  position:absolute;
+
+  bottom:18px;
+  left:50%;
+  transform:translateX(-50%);
+
+  display:flex;
+  gap:7px;
+
+  z-index:6;
+}
+
+.hero-dot{
+  width:28px;
+  height:4px;
+
+  border:0;
+  border-radius:10px;
+
+  background:#555;
+}
+
+.hero-dot.active{
+  background:var(--red);
+}
+
+
+/* =========================================================
+   TRUST
+========================================================= */
+
+.trust{
+  max-width:1320px;
+  margin:auto;
+
+  padding:18px 20px;
+
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:8px;
+}
+
+.trust-item{
+  padding:15px 10px;
+
+  border-top:1px solid #2b2b2b;
+
+  text-align:center;
+
+  font-size:10px;
+  font-weight:800;
+
+  color:#ccc;
+
+  text-transform:uppercase;
+  letter-spacing:.7px;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.section{
+  max-width:1320px;
+  margin:auto;
+
+  padding:55px 20px 10px;
+}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+
+  gap:20px;
+
+  margin-bottom:22px;
+}
+
+.kicker{
+  color:var(--red);
+
+  font-size:11px;
+
+  font-weight:900;
+
+  letter-spacing:3px;
+
+  text-transform:uppercase;
+}
+
+h2{
+  margin-top:5px;
+
+  font-family:'Barlow Condensed',sans-serif;
+
+  font-size:50px;
+
+  line-height:.9;
+
+  font-style:italic;
+
+  text-transform:uppercase;
+}
+
+.section-head p{
+  max-width:480px;
+
+  color:#999;
+
+  font-size:13px;
+
+  line-height:1.6;
+
+  text-align:right;
+}
+
+
+/* =========================================================
+   PRODUCT SLIDER
+========================================================= */
+
+.product-slider{
+  position:relative;
+}
+
+.product-window{
+  overflow:hidden;
+
+  touch-action:pan-y;
+
+  border-radius:15px;
+}
+
+.products{
+  display:flex;
+
+  gap:14px;
+
+  transition:
+    transform .55s cubic-bezier(.77,0,.18,1);
+
+  will-change:transform;
+}
+
+.card{
+  flex:0 0 calc((100% - 42px)/4);
+
+  background:
+    linear-gradient(
+      180deg,
+      #141414,
+      #090909
+    );
+
+  border:1px solid #292929;
+
+  border-radius:14px;
+
+  overflow:hidden;
+
+  position:relative;
+
+  transition:.3s;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.25);
+}
+
+.card:hover{
+  transform:translateY(-7px);
+
+  border-color:#555;
+
+  box-shadow:
+    0 18px 40px rgba(0,0,0,.5);
+}
+
+.card-img{
+  position:relative;
+
+  aspect-ratio:1/1;
+
+  overflow:hidden;
+
+  background:#181818;
+}
+
+.card-img img{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  display:block;
+
+  transition:.5s;
+}
+
+.card:hover .card-img img{
+  transform:scale(1.08);
+}
+
+.badge{
+  position:absolute;
+
+  top:10px;
+  left:10px;
+
+  padding:5px 8px;
+
+  border-radius:5px;
+
+  background:var(--red);
+
+  color:white;
+
+  font-size:9px;
+
+  font-weight:900;
+
+  text-transform:uppercase;
+}
+
+.badge.new{
+  background:#fff;
+  color:#000;
+}
+
+.badge.best{
+  background:#ff8a00;
+}
+
+.badge.promo{
+  background:#7c3aed;
+}
+
+.card-body{
+  padding:14px;
+}
+
+.card-cat{
+  color:#999;
+
+  font-size:9px;
+
+  font-weight:800;
+
+  text-transform:uppercase;
+
+  letter-spacing:1px;
+}
+
+.card h3{
+  margin:6px 0 9px;
+
+  font-size:14px;
+
+  line-height:1.35;
+}
+
+.price{
+  font-family:'Barlow Condensed',sans-serif;
+
+  font-size:25px;
+
+  font-weight:900;
+}
+
+.buy{
+  display:flex;
+
+  gap:7px;
+
+  margin-top:12px;
+}
+
+.buy a{
+  flex:1;
+
+  text-align:center;
+
+  padding:9px 4px;
+
+  border-radius:7px;
+
+  border:1px solid #3b3b3b;
+
+  font-size:9px;
+
+  font-weight:900;
+
+  text-transform:uppercase;
+}
+
+.buy a:first-child{
+  background:#111;
+}
+
+.buy a:last-child{
+  background:var(--red);
+
+  border-color:var(--red);
+}
+
+.product-arrow{
+  position:absolute;
+
+  top:45%;
+
+  transform:translateY(-50%);
+
+  z-index:10;
+
+  width:40px;
+  height:40px;
+
+  border-radius:50%;
+
+  border:1px solid #555;
+
+  background:rgba(0,0,0,.88);
+
+  color:white;
+
+  font-size:22px;
+
+  transition:.2s;
+}
+
+.product-arrow:hover{
+  background:var(--red);
+  border-color:var(--red);
+}
+
+.product-prev{
+  left:-18px;
+}
+
+.product-next{
+  right:-18px;
+}
+
+
+/* =========================================================
+   PRODUCT DOTS
+========================================================= */
+
+.product-dots{
+  display:flex;
+
+  justify-content:center;
+
+  gap:6px;
+
+  margin-top:17px;
+}
+
+.product-dot{
+  width:20px;
+  height:3px;
+
+  border:0;
+
+  border-radius:5px;
+
+  background:#444;
+}
+
+.product-dot.active{
+  background:var(--red);
+}
+
+
+/* =========================================================
+   PROMO
+========================================================= */
+
+.promo{
+  max-width:1320px;
+
+  margin:60px auto 0;
+
+  padding:0 20px;
+}
+
+.promo-box{
+  position:relative;
+
+  overflow:hidden;
+
+  border:1px solid #43090c;
+
+  border-radius:18px;
+
+  padding:35px;
+
+  background:
+    linear-gradient(
+      100deg,
+      #190000,
+      #090909 55%,
+      #150000
+    );
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:20px;
+}
+
+.promo-box:after{
+  content:"77";
+
+  position:absolute;
+
+  right:20px;
+  bottom:-70px;
+
+  font-family:'Barlow Condensed';
+
+  font-size:240px;
+
+  font-style:italic;
+
+  font-weight:900;
+
+  color:rgba(255,23,32,.08);
+}
+
+.promo h3{
+  font-family:'Barlow Condensed';
+
+  font-size:40px;
+
+  font-style:italic;
+
+  text-transform:uppercase;
+}
+
+.promo p{
+  margin-top:5px;
+
+  color:#aaa;
+
+  font-size:13px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+  margin-top:65px;
+
+  border-top:1px solid #222;
+
+  background:#080808;
+}
+
+.footer-inner{
+  max-width:1320px;
+
+  margin:auto;
+
+  padding:35px 20px;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  gap:20px;
+}
+
+.footer p{
+  color:#777;
+
+  font-size:11px;
+}
+
+.social{
+  display:flex;
+
+  gap:8px;
+}
+
+.social a{
+  padding:9px 12px;
+
+  border:1px solid #333;
+
+  border-radius:7px;
+
+  font-size:10px;
+
+  font-weight:800;
+}
+
+
+/* =========================================================
+   SEARCH MODAL
+========================================================= */
+
+.modal{
+  position:fixed;
+
+  inset:0;
+
+  z-index:200;
+
+  display:none;
+
+  align-items:center;
+
+  justify-content:center;
+
+  padding:20px;
+
+  background:rgba(0,0,0,.84);
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  position:relative;
+
+  width:100%;
+
+  max-width:620px;
+
+  padding:27px;
+
+  border:1px solid #444;
+
+  border-radius:16px;
+
+  background:#101010;
+}
+
+.close{
+  position:absolute;
+
+  top:10px;
+  right:15px;
+
+  border:0;
+
+  background:none;
+
+  color:white;
+
+  font-size:27px;
+}
+
+.modal-box h3{
+  font-family:'Barlow Condensed';
+
+  font-size:40px;
+
+  font-style:italic;
+}
+
+.modal-box p{
+  margin-top:8px;
+
+  color:#aaa;
+
+  font-size:13px;
+
+  line-height:1.6;
+}
+
+.search{
+  display:flex;
+
+  gap:8px;
+
+  margin-top:18px;
+}
+
+.search input{
+  flex:1;
+
+  padding:12px;
+
+  border:1px solid #444;
+
+  border-radius:8px;
+
+  outline:none;
+
+  background:#080808;
+
+  color:white;
+}
+
+.search button{
+  padding:0 18px;
+
+  border:0;
+
+  border-radius:8px;
+
+  background:var(--red);
+
+  color:white;
+
+  font-weight:900;
+}
+
+
+/* =========================================================
+   RESPONSIVE TABLET
+========================================================= */
+
+@media(max-width:950px){
+
+  nav{
+    display:none;
+  }
+
+  .hero-slider,
+  .hero-slide{
+    min-height:420px;
+  }
+
+  .hero-content{
+    padding:35px;
+  }
+
+  .card{
+    flex:0 0 calc((100% - 14px)/2);
+  }
+
+  .trust{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .section-head{
+    align-items:flex-start;
+
+    flex-direction:column;
+  }
+
+  .section-head p{
+    text-align:left;
+  }
+
+  .product-arrow{
+    display:none;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE HP
+========================================================= */
+
+@media(max-width:560px){
+
+  .nav{
+    padding:8px 12px;
+  }
+
+  .brand{
+    font-size:24px;
+  }
+
+  .brand img{
+    width:38px;
+    height:38px;
+  }
+
+  .cart{
+    margin-left:auto;
+
+    padding:8px 10px;
+  }
+
+  .hero{
+    padding:15px 12px;
+  }
+
+  .hero-slider,
+  .hero-slide{
+    min-height:440px;
+
+    border-radius:15px;
+  }
+
+  .hero-content{
+    padding:25px;
+  }
+
+  .hero-content h1{
+    font-size:58px;
+  }
+
+  .hero-content p{
+    font-size:12px;
+  }
+
+  .slider-btn{
+    width:38px;
+    height:38px;
+
+    font-size:20px;
+  }
+
+  .hero-prev{
+    left:10px;
+  }
+
+  .hero-next{
+    right:10px;
+  }
+
+  .trust{
+    padding:10px 12px;
+
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .trust-item{
+    font-size:9px;
+  }
+
+  .section{
+    padding:42px 12px 5px;
+  }
+
+  h2{
+    font-size:43px;
+  }
+
+  .products{
+    gap:9px;
+  }
+
+  .card{
+    flex:0 0 calc((100% - 9px)/2);
+
+    border-radius:11px;
+  }
+
+  .card-body{
+    padding:10px;
+  }
+
+  .card h3{
+    font-size:12px;
+  }
+
+  .price{
+    font-size:21px;
+  }
+
+  .buy{
+    gap:5px;
+  }
+
+  .buy a{
+    font-size:8px;
+
+    padding:8px 2px;
+  }
+
+  .promo{
+    padding:0 12px;
+  }
+
+  .promo-box{
+    padding:24px;
+
+    display:block;
+  }
+
+  .promo h3{
+    font-size:34px;
+  }
+
+  .promo .btn{
+    margin-top:17px;
+  }
+
+  .footer-inner{
+    display:block;
+
+    padding:25px 12px;
+  }
+
+  .social{
+    margin-top:15px;
+  }
+
+}
+
+</style>
 </head>
+
+
 <body>
+
 <div class="topline"></div>
+
+
+<!-- =======================================================
+     HEADER
+======================================================= -->
+
 <header>
+
   <div class="nav">
-    <a class="brand" href="#top"><img src="FASHION.png" alt="ONESTREET77"><span>ONE</span>STREET77</a>
+
+    <a class="brand" href="#top">
+
+      <img
+        src="FASHION.png"
+        alt="ONESTREET77">
+
+      <span>ONE</span>STREET77
+
+    </a>
+
+
     <nav>
-      <a href="#otomotif">Otomotif</a><a href="#fashion">Fashion</a><a href="#sepatu">Sepatu</a><a href="#tas">Tas</a>
+
+      <a href="#otomotif">Otomotif</a>
+
+      <a href="#fashion">Fashion</a>
+
+      <a href="#sepatu">Sepatu</a>
+
+      <a href="#tas">Tas</a>
+
     </nav>
-    <button class="cart" onclick="openModal()">🛒 Shopee</button>
+
+
+    <button
+      class="cart"
+      onclick="openModal()">
+
+      🛒 Shopee
+
+    </button>
+
   </div>
+
 </header>
 
-<main id="top">
-  <section class="hero">
-    <div class="hero-grid">
-      <div class="hero-copy">
-        <div class="eyebrow">RIDE • STYLE • EVERYDAY</div>
-        <h1>GEAR UP<br><span>YOUR</span> LIFESTYLE</h1>
-        <p class="tagline">OTOMOTIF • FASHION • SEPATU • TAS</p>
-        <div class="hero-actions"><a class="btn btn-red" href="#otomotif">Belanja Sekarang</a><button class="btn btn-dark" onclick="openModal()">Cari Produk</button></div>
-      </div>
-      <div class="hero-visual"><img src="logo-onestreet77.png" alt="ONESTREET77 brand" style="object-position:center;object-fit:cover"><div class="hero-badge"><b>ONESTREET77</b> — ONE SHOP FOR YOUR DAILY GEAR</div></div>
-    </div>
-  </section>
 
-  <div class="trust">
-    <div class="trust-item">✓ Produk pilihan</div><div class="trust-item">📦 Packing aman</div><div class="trust-item">🚚 Pengiriman cepat</div><div class="trust-item">★ Harga kompetitif</div><div class="trust-item">💬 Respon cepat</div>
+
+<main id="top">
+
+
+<!-- =======================================================
+     HERO SLIDER
+======================================================= -->
+
+<section class="hero">
+
+  <div
+    class="hero-slider"
+    id="heroSlider">
+
+
+    <div
+      class="hero-track"
+      id="heroTrack">
+
+
+      <!-- SLIDE 1 -->
+
+      <div class="hero-slide">
+
+        <img
+          src="https://images.pexels.com/photos/2116475/pexels-photo-2116475.jpeg?auto=compress&cs=tinysrgb&w=1600"
+          alt="ONESTREET77 Otomotif">
+
+        <div class="hero-content">
+
+          <div class="eyebrow">
+            ONESTREET77 • MOTORCYCLE
+          </div>
+
+          <h1>
+            RIDE<br>
+            <span>YOUR</span><br>
+            STYLE
+          </h1>
+
+          <p>
+            Upgrade tampilan motor Anda dengan aksesori,
+            sparepart dan gear pilihan ONESTREET77.
+          </p>
+
+          <div class="hero-buttons">
+
+            <a
+              href="#otomotif"
+              class="btn btn-red">
+
+              Lihat Otomotif
+
+            </a>
+
+            <button
+              class="btn btn-dark"
+              onclick="openModal()">
+
+              Cari Produk
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- SLIDE 2 -->
+
+      <div class="hero-slide">
+
+        <img
+          src="https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1600"
+          alt="ONESTREET77 Fashion">
+
+        <div class="hero-content">
+
+          <div class="eyebrow">
+            ONESTREET77 • STREETWEAR
+          </div>
+
+          <h1>
+            STREET<br>
+            <span>YOUR</span><br>
+            WAY
+          </h1>
+
+          <p>
+            Hoodie, kaos, jaket dan outfit streetwear
+            untuk gaya sehari-hari.
+          </p>
+
+          <div class="hero-buttons">
+
+            <a
+              href="#fashion"
+              class="btn btn-red">
+
+              Lihat Fashion
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- SLIDE 3 -->
+
+      <div class="hero-slide">
+
+        <img
+          src="https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=1600"
+          alt="ONESTREET77 Shoes">
+
+        <div class="hero-content">
+
+          <div class="eyebrow">
+            ONESTREET77 • FOOTWEAR
+          </div>
+
+          <h1>
+            STEP<br>
+            <span>UP</span><br>
+            YOUR GAME
+          </h1>
+
+          <p>
+            Sneakers dan footwear sporty untuk melengkapi
+            gaya ONESTREET77.
+          </p>
+
+          <div class="hero-buttons">
+
+            <a
+              href="#sepatu"
+              class="btn btn-red">
+
+              Lihat Sepatu
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- SLIDE 4 -->
+
+      <div class="hero-slide">
+
+        <img
+          src="https://images.pexels.com/photos/2905238/pexels-photo-2905238.jpeg?auto=compress&cs=tinysrgb&w=1600"
+          alt="ONESTREET77 Bags">
+
+        <div class="hero-content">
+
+          <div class="eyebrow">
+            ONESTREET77 • DAILY CARRY
+          </div>
+
+          <h1>
+            CARRY<br>
+            <span>YOUR</span><br>
+            WORLD
+          </h1>
+
+          <p>
+            Backpack, sling bag dan tas harian
+            untuk aktivitas urban.
+          </p>
+
+          <div class="hero-buttons">
+
+            <a
+              href="#tas"
+              class="btn btn-red">
+
+              Lihat Tas
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <!-- HERO BUTTON -->
+
+    <button
+      class="slider-btn hero-prev"
+      onclick="heroMove(-1)">
+
+      ‹
+
+    </button>
+
+
+    <button
+      class="slider-btn hero-next"
+      onclick="heroMove(1)">
+
+      ›
+
+    </button>
+
+
+    <div
+      class="hero-dots"
+      id="heroDots">
+
+    </div>
+
+
   </div>
 
-  <section class="section" id="otomotif">
-    <div class="section-head"><div><div class="kicker">01 / MOTORCYCLE</div><h2>Otomotif</h2></div><p>Sparepart dan aksesori motor untuk kebutuhan harian, touring, dan upgrade tampilan.</p></div>
-    <div class="category-wrap"><button class="arrow prev" onclick="move('oto',-1)">‹</button><div class="products" id="oto"></div><button class="arrow next" onclick="move('oto',1)">›</button></div>
-  </section>
+</section>
 
-  <section class="section" id="fashion">
-    <div class="section-head"><div><div class="kicker">02 / STREETWEAR</div><h2>Fashion</h2></div><p>Gaya kasual pria dengan pilihan outfit yang mudah dipadukan untuk aktivitas sehari-hari.</p></div>
-    <div class="category-wrap"><button class="arrow prev" onclick="move('fashion',-1)">‹</button><div class="products" id="fashion"></div><button class="arrow next" onclick="move('fashion',1)">›</button></div>
-  </section>
 
-  <section class="section" id="sepatu">
-    <div class="section-head"><div><div class="kicker">03 / FOOTWEAR</div><h2>Sepatu</h2></div><p>Sneakers dan footwear dengan karakter sporty untuk melengkapi gaya ONESTREET77.</p></div>
-    <div class="category-wrap"><button class="arrow prev" onclick="move('sepatu',-1)">‹</button><div class="products" id="sepatu"></div><button class="arrow next" onclick="move('sepatu',1)">›</button></div>
-  </section>
 
-  <section class="section" id="tas">
-    <div class="section-head"><div><div class="kicker">04 / DAILY CARRY</div><h2>Tas</h2></div><p>Tas dan backpack untuk kerja, kuliah, riding, dan aktivitas urban sehari-hari.</p></div>
-    <div class="category-wrap"><button class="arrow prev" onclick="move('tas',-1)">‹</button><div class="products" id="tas"></div><button class="arrow next" onclick="move('tas',1)">›</button></div>
-  </section>
+<!-- =======================================================
+     TRUST
+======================================================= -->
 
-  <section class="promo"><div class="promo-box"><div><h3>Siap Upgrade Gaya?</h3><p>Pilih gear favoritmu dan lanjutkan checkout melalui Shopee ONESTREET77.</p></div><a class="btn btn-red" href="https://shopee.co.id/" target="_blank" rel="noopener">Buka Shopee</a></div></section>
+<div class="trust">
+
+  <div class="trust-item">
+    ✓ Produk pilihan
+  </div>
+
+  <div class="trust-item">
+    📦 Packing aman
+  </div>
+
+  <div class="trust-item">
+    🚚 Pengiriman cepat
+  </div>
+
+  <div class="trust-item">
+    ★ Harga kompetitif
+  </div>
+
+  <div class="trust-item">
+    💬 Respon cepat
+  </div>
+
+</div>
+
+
+
+<!-- =======================================================
+     OTOMOTIF
+======================================================= -->
+
+<section
+  class="section"
+  id="otomotif">
+
+  <div class="section-head">
+
+    <div>
+
+      <div class="kicker">
+        01 / MOTORCYCLE
+      </div>
+
+      <h2>
+        Otomotif
+      </h2>
+
+    </div>
+
+    <p>
+      Sparepart, aksesori dan gear motor
+      untuk riding, touring dan upgrade tampilan.
+    </p>
+
+  </div>
+
+
+ <div
+    class="product-slider"
+    data-category="oto">
+
+    <button
+      class="product-arrow product-prev"
+      onclick="productMove('oto',-1)">
+
+      ‹
+
+    </button>
+
+
+    <div
+      class="product-window"
+      id="window-oto">
+
+      <div
+        class="products"
+        id="oto">
+
+      </div>
+
+    </div>
+
+
+    <button
+      class="product-arrow product-next"
+      onclick="productMove('oto',1)">
+
+      ›
+
+    </button>
+
+
+    <div
+      class="product-dots"
+      id="dots-oto">
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =======================================================
+     FASHION
+======================================================= -->
+
+<section
+  class="section"
+  id="fashion">
+
+  <div class="section-head">
+
+    <div>
+
+      <div class="kicker">
+        02 / STREETWEAR
+      </div>
+
+      <h2>
+        Fashion
+      </h2>
+
+    </div>
+
+    <p>
+      Hoodie, kaos, jaket dan outfit streetwear
+      untuk aktivitas sehari-hari.
+    </p>
+
+  </div>
+
+
+  <div
+    class="product-slider"
+    data-category="fashion">
+
+    <button
+      class="product-arrow product-prev"
+      onclick="productMove('fashion',-1)">
+
+      ‹
+
+    </button>
+
+
+    <div
+      class="product-window"
+      id="window-fashion">
+
+      <div
+        class="products"
+        id="fashion">
+
+      </div>
+
+    </div>
+
+
+    <button
+      class="product-arrow product-next"
+      onclick="productMove('fashion',1)">
+
+      ›
+
+    </button>
+
+
+    <div
+      class="product-dots"
+      id="dots-fashion">
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =======================================================
+     SEPATU
+======================================================= -->
+
+<section
+  class="section"
+  id="sepatu">
+
+  <div class="section-head">
+
+    <div>
+
+      <div class="kicker">
+        03 / FOOTWEAR
+      </div>
+
+      <h2>
+        Sepatu
+      </h2>
+
+    </div>
+
+    <p>
+      Sneakers dan footwear sporty
+      untuk melengkapi gaya ONESTREET77.
+    </p>
+
+  </div>
+
+
+  <div
+    class="product-slider"
+    data-category="sepatu">
+
+    <button
+      class="product-arrow product-prev"
+      onclick="productMove('sepatu',-1)">
+
+      ‹
+
+    </button>
+
+
+    <div
+      class="product-window"
+      id="window-sepatu">
+
+      <div
+        class="products"
+        id="sepatu">
+
+      </div>
+
+    </div>
+
+
+    <button
+      class="product-arrow product-next"
+      onclick="productMove('sepatu',1)">
+
+      ›
+
+    </button>
+
+
+    <div
+      class="product-dots"
+      id="dots-sepatu">
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =======================================================
+     TAS
+======================================================= -->
+
+<section
+  class="section"
+  id="tas">
+
+  <div class="section-head">
+
+    <div>
+
+      <div class="kicker">
+        04 / DAILY CARRY
+      </div>
+
+      <h2>
+        Tas
+      </h2>
+
+    </div>
+
+    <p>
+      Backpack, sling bag dan tas harian
+      untuk kerja, kuliah, riding dan aktivitas urban.
+    </p>
+
+  </div>
+
+
+  <div
+    class="product-slider"
+    data-category="tas">
+
+    <button
+      class="product-arrow product-prev"
+      onclick="productMove('tas',-1)">
+
+      ‹
+
+    </button>
+
+
+    <div
+      class="product-window"
+      id="window-tas">
+
+      <div
+        class="products"
+        id="tas">
+
+      </div>
+
+    </div>
+
+
+    <button
+      class="product-arrow product-next"
+      onclick="productMove('tas',1)">
+
+      ›
+
+    </button>
+
+
+    <div
+      class="product-dots"
+      id="dots-tas">
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =======================================================
+     PROMO
+======================================================= -->
+
+<section class="promo">
+
+  <div class="promo-box">
+
+    <div>
+
+      <h3>
+        Siap Upgrade Gaya?
+      </h3>
+
+      <p>
+        Pilih gear favoritmu dan lanjutkan
+        checkout melalui Shopee ONESTREET77.
+      </p>
+
+    </div>
+
+
+    <a
+      class="btn btn-red"
+      href="https://shopee.co.id/"
+      target="_blank"
+      rel="noopener">
+
+      Buka Shopee
+
+    </a>
+
+  </div>
+
+</section>
+
+
 </main>
 
-<footer class="footer"><div class="footer-inner"><p>© 2026 ONESTREET77 — RIDE | STYLE | EVERYDAY</p><div class="social"><a href="#">Facebook</a><a href="#">Instagram</a><a href="https://shopee.co.id/" target="_blank" rel="noopener">Shopee</a></div></div></footer>
 
-<div class="modal" id="modal"><div class="modal-box"><button class="close" onclick="closeModal()">×</button><h3>Cari Produk</h3><p>Ketik nama produk. Demo ini akan mencari di katalog yang tersedia di halaman.</p><div class="search"><input id="searchInput" placeholder="Contoh: helm, hoodie, sneakers..."><button onclick="searchProduct()">Cari</button></div><p id="searchResult"></p></div></div>
+
+<!-- =======================================================
+     FOOTER
+======================================================= -->
+
+<footer class="footer">
+
+  <div class="footer-inner">
+
+    <p>
+      © 2026 ONESTREET77 —
+      RIDE | STYLE | EVERYDAY
+    </p>
+
+    <div class="social">
+
+      <a href="#">
+        Facebook
+      </a>
+
+      <a href="#">
+        Instagram
+      </a>
+
+      <a
+        href="https://shopee.co.id/"
+        target="_blank">
+
+        Shopee
+
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+
+<!--
+  =======================================================
+     SEARCH MODAL
+======================================================= -->
+
+<div
+  class="modal"
+  id="modal">
+
+  <div class="modal-box">
+
+    <button
+      class="close"
+      onclick="closeModal()">
+
+      ×
+
+    </button>
+
+
+    <h3>
+      Cari Produk
+    </h3>
+
+    <p>
+      Ketik nama produk seperti helm,
+      hoodie, sneakers, tas, dan lainnya.
+    </p>
+
+
+    <div class="search">
+
+      <input
+        id="searchInput"
+        placeholder="Contoh: hoodie, helm, sepatu...">
+
+      <button
+        onclick="searchProduct()">
+
+        Cari
+
+      </button>
+
+    </div>
+
+
+    <p id="searchResult"></p>
+
+  </div>
+
+</div>
+
+
 
 <script>
-const products={
+
+/* =========================================================
+   LINK TOKO SHOPEE
+========================================================= */
+
+/*
+   GANTI LINK DI BAWAH DENGAN LINK TOKO SHOPEE ANDA
+*/
+
+const SHOPEE_URL =
+"https://shopee.co.id/";
+
+
+
+/* =========================================================
+   DATA PRODUK
+=========================================================
+
+   CARA MENAMBAH PRODUK:
+
+   [
+     "Nama Produk",
+     "Rp 199.000",
+     "URL GAMBAR",
+     "Kategori",
+     "NEW"
+   ]
+
+   Badge bisa:
+   NEW
+   BEST
+   PROMO
+   PILIHAN
+
+========================================================= */
+
+const products = {
+
+  /* =====================================================
+     OTOMOTIF
+  ===================================================== */
+
   oto:[
-    ['Helm Full Face Sport','Rp 425.000','https://images.pexels.com/photos/163210/motorcycle-racer-racing-helmet-163210.jpeg?auto=compress&cs=tinysrgb&w=800','Aksesori Motor','https://www.pexels.com/search/motorcycle%20gear/'],
-    ['Disc Brake Racing','Rp 385.000','https://images.pexels.com/photos/190574/motorcycle-motorbike-bike-vehicle-190574.jpeg?auto=compress&cs=tinysrgb&w=800','Sparepart Motor','https://www.pexels.com/search/motorcycle%20parts/'],
-    ['Shockbreaker Performance','Rp 690.000','https://images.pexels.com/photos/2116475/pexels-photo-2116475.jpeg?auto=compress&cs=tinysrgb&w=800','Sparepart Motor','https://www.pexels.com/search/motorcycle%20parts/'],
-    ['Sarung Tangan Riding','Rp 149.000','https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&w=800','Aksesori Motor','https://www.pexels.com/search/motorcycle%20gear/']
+
+    [
+      "Helm Full Face Sport",
+      "Rp 425.000",
+      "https://images.pexels.com/photos/163210/motorcycle-racer-racing-helmet-163210.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "Aksesori Motor",
+      "BEST"
+    ],
+
+    [
+      "Disc Brake Racing",
+      "Rp 385.000",
+      "https://images.pexels.com/photos/190574/motorcycle-motorbike-bike-vehicle-190574.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "Sparepart Motor",
+      "NEW"
+    ],
+
+    [
+      "Shockbreaker Performance",
+      "Rp 690.000",
+      "https://images.pexels.com/photos/2116475/pexels-photo-2116475.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "Sparepart Motor",
+      "PROMO"
+    ],
+
+    [
+      "Sarung Tangan Riding",
+      "Rp 149.000",
+      "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "Aksesori Motor",
+      "PILIHAN"
+    ],
+
+    [
+      "Jaket Riding",
+      "Rp 349.000",
+      "https://images.pexels.com/photos/1124465/pexels-photo-1124465.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "Riding Gear",
+      "NEW"
+    ],
+
+    [
+      "Kacamata Riding",
+      "Rp 125.000",
+      "https://images.pexels.com/photos/46710/pexels-photo-46710.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "Aksesori Motor",
+      "PILIHAN"
+    ],
+
+    [
+      "Tas Motor Waterproof",
+      "Rp 199.000",
+      "https://images.pexels.com/photos/2905238/pexels-photo-2905238.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "Riding Gear",
+      "BEST"
+    ],
+
+    [
+      "Cover Motor Premium",
+      "Rp 175.000",
+      "https://images.pexels.com/photos/104842/pexels-photo-104842.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "Aksesori Motor",
+      "PROMO"
+    ]
+
   ],
+
+
+
+  /* =====================================================
+     FASHION
+  ===================================================== */
+
   fashion:[
-    ['Hoodie Street Black','Rp 189.000','https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=800','Fashion Pria','https://www.pexels.com/search/menswear%20fashion/'],
-    ['Oversize T-Shirt','Rp 99.000','https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg?auto=compress&cs=tinysrgb&w=800','Fashion Pria','https://www.pexels.com/search/mens%20fashion%20clothes/'],
-    ['Jaket Casual Urban','Rp 279.000','https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=800','Fashion Pria','https://www.pexels.com/search/mens%20fashion%20clothes/'],
-    ['Cap Streetwear','Rp 79.000','https://images.pexels.com/photos/1124465/pexels-photo-1124465.jpeg?auto=compress&cs=tinysrgb&w=800','Fashion Pria','https://www.pexels.com/search/menswear%20fashion/']
+
+    [
+      "Hoodie Street Black",
+      "Rp 189.000",
+      "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "Fashion Pria",
+      "BEST"
+    ],
+
+    [
+      "Oversize T-Shirt",
+      "Rp 99.000",
+      "https://images.pexels.com/photos/8532616/pexels-photo-8532616.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "Fashion Pria",
+      "NEW"
+    ],
+
+    [
+      "Jaket Casual Urban",
+      "Rp 279.000",
+      "https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "Fashion Pria",
+      "PROMO"
+    ],
+
+    [
+      "Cap Streetwear",
+      "Rp 79.000",
+      "https://images.pexels.com/photos/1124465/pexels-photo-1124465.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "Fashion Pria",
+      "PILIHAN"
+    ],
+
+    [
+      "Hoodie Premium Grey",
+      "Rp 219.000",
+      "https://images.pexels.com/photos/6311392/pexels-photo-6311392.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "Fashion Pria",
+      "NEW"
+    ],
+
+    [
+      "Kaos Cotton Black",
+      "Rp 89.000",
+      "https://images.pexels.com/photos/4066293/pexels-photo-4066293.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "Fashion Pria",
+      "BEST"
+    ],
+
+    [
+      "Sweater Street",
+      "Rp 179.000",
+      "https://images.pexels.com/photos/6347852/pexels-photo-6347852.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "Fashion Pria",
+      "PROMO"
+    ],
+
+    [
+      "Cargo Pants Urban",
+      "Rp 239.000",
+      "https://images.pexels.com/photos/1598507/pexels-photo-1598507.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "Fashion Pria",
+      "PILIHAN"
+    ]
+
   ],
+  =====================================================
+     SEPATU
+  ===================================================== */
+
   sepatu:[
-    ['Sneakers Urban Black White','Rp 329.000','https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=800','Sneakers','https://www.pexels.com/id-id/pencarian/sneaker/'],
-    ['Running Shoes Sport','Rp 449.000','https://images.pexels.com/photos/1456706/pexels-photo-1456706.jpeg?auto=compress&cs=tinysrgb&w=800','Running','https://www.pexels.com/id-id/pencarian/sepatu/'],
-    ['High Top Street','Rp 389.000','https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=800','Sneakers','https://www.pexels.com/id-id/pencarian/sepatu%20kets/'],
-    ['Casual Sneakers Grey','Rp 299.000','https://images.pexels.com/photos/1464625/pexels-photo-1464625.jpeg?auto=compress&cs=tinysrgb&w=800','Sneakers','https://www.pexels.com/id-id/pencarian/sepatu%20kasual/']
+
+    [
+      "Sneakers Urban Black White",
+      "Rp 329.000",
+      "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "Sneakers",
+      "BEST"
+    ],
+
+    [
+      "Running Shoes Sport",
+      "Rp 449.000",
+      "https://images.pexels.com/photos/1456706/pexels-photo-1456706.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "Running",
+      "NEW"
+    ],
+
+    [
+      "High Top Street",
+      "Rp 389.000",
+      "https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "Sneakers",
+      "PILIHAN"
+    ],
+
+    [
+      "Casual Sneakers Grey",
+      "Rp 299.000",
+      "https://images.pexels.com/photos/1464625/pexels-photo-1464625.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "Sneakers",
+      "PROMO"
+    ],
+
+    [
+      "Sport Shoes Black",
+      "Rp 419.000",
+      "https://images.pexels.com/photos/2529147/pexels-photo-2529147.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "Sport",
+      "BEST"
+    ],
+
+    [
+      "Sneakers White Clean",
+      "Rp 349.000",
+      "https://images.pexels.com/photos/1464625/pexels-photo-1464625.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "Sneakers",
+      "NEW"
+    ]
+
   ],
+
+
+
+  /* =====================================================
+     TAS
+  ===================================================== */
+
   tas:[
-    ['Urban Backpack Black','Rp 249.000','https://images.pexels.com/photos/2905238/pexels-photo-2905238.jpeg?auto=compress&cs=tinysrgb&w=800','Backpack','https://www.pexels.com/search/backpack%20bag/'],
-    ['Sling Bag Tactical','Rp 159.000','https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&w=800','Sling Bag','https://www.pexels.com/search/bag/'],
-    ['Travel Backpack','Rp 329.000','https://images.pexels.com/photos/1546003/pexels-photo-1546003.jpeg?auto=compress&cs=tinysrgb&w=800','Backpack','https://www.pexels.com/search/backpack/'],
-    ['Daily Shoulder Bag','Rp 179.000','https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&w=800','Tas Harian','https://www.pexels.com/search/bag/']
+
+    [
+      "Urban Backpack Black",
+      "Rp 249.000",
+      "https://images.pexels.com/photos/2905238/pexels-photo-2905238.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "Backpack",
+      "BEST"
+    ],
+
+    [
+      "Sling Bag Tactical",
+      "Rp 159.000",
+      "https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "Sling Bag",
+      "NEW"
+    ],
+
+    [
+      "Travel Backpack",
+      "Rp 329.000",
+      "https://images.pexels.com/photos/1546003/pexels-photo-1546003.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "Backpack",
+      "PILIHAN"
+    ],
+
+    [
+      "Daily Shoulder Bag",
+      "Rp 179.000",
+      "https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "Tas Harian",
+      "PROMO"
+    ],
+
+    [
+      "Laptop Backpack",
+      "Rp 289.000",
+      "https://images.pexels.com/photos/1294731/pexels-photo-1294731.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "Backpack",
+      "NEW"
+    ],
+
+    [
+      "Crossbody Bag",
+      "Rp 139.000",
+      "https://images.pexels.com/photos/1152077/pexels-photo-1152077.jpeg?auto=compress&cs=tinysrgb&w=1000",
+      "Sling Bag",
+      "BEST"
+    ]
+
   ]
+
 };
 
-const positions={oto:0,fashion:0,sepatu:0,tas:0};
-function card(p){return `<article class="card"><div class="card-img"><img loading="lazy" src="${p[2]}" alt="${p[0]}" onerror="this.src='https://placehold.co/800x800/111111/ffffff?text=ONESTREET77'"/><span class="badge">Pilihan</span></div><div class="card-body"><div class="card-cat">${p[3]}</div><h3>${p[0]}</h3><div class="price">${p[1]}</div><div class="buy"><a href="${p[4]}" target="_blank" rel="noopener">Lihat foto</a><a href="https://shopee.co.id/" target="_blank" rel="noopener">Shopee</a></div></div></article>`}
-function render(id){const el=document.getElementById(id); const arr=products[id]; const start=positions[id]; const list=[...arr,...arr]; const visible=list.slice(start,start+4); el.innerHTML=visible.map(card).join('')}
-function move(id,dir){positions[id]=(positions[id]+dir+products[id].length)%products[id].length;render(id)}
-Object.keys(products).forEach(render);
-setInterval(()=>Object.keys(products).forEach(id=>move(id,1)),5000);
-function openModal(){document.getElementById('modal').classList.add('show');document.getElementById('searchInput').focus()}
-function closeModal(){document.getElementById('modal').classList.remove('show')}
-function searchProduct(){const q=document.getElementById('searchInput').value.toLowerCase().trim(); const found=Object.values(products).flat().filter(p=>p[0].toLowerCase().includes(q)||p[3].toLowerCase().includes(q));document.getElementById('searchResult').innerHTML=q?(found.length?`Ditemukan <b>${found.length}</b> produk. Silakan pilih kategori di halaman.`:'Produk belum ada di katalog demo. Silakan cari langsung di Shopee ONESTREET77.'):'Masukkan kata kunci terlebih dahulu.'}
-document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});
+
+
+/* =========================================================
+   HERO SLIDER
+========================================================= */
+
+let heroIndex = 0;
+
+const heroTrack =
+  document.getElementById("heroTrack");
+
+const heroSlides =
+  document.querySelectorAll(".hero-slide");
+
+const heroDots =
+  document.getElementById("heroDots");
+
+
+function createHeroDots(){
+
+  heroSlides.forEach((slide,index)=>{
+
+    const dot =
+      document.createElement("button");
+
+    dot.className =
+      "hero-dot";
+
+    dot.onclick=()=>{
+      heroIndex=index;
+      updateHero();
+    };
+
+    heroDots.appendChild(dot);
+
+  });
+
+}
+
+
+function updateHero(){
+
+  heroTrack.style.transform =
+    `translateX(-${heroIndex*100}%)`;
+
+  document
+    .querySelectorAll(".hero-dot")
+    .forEach((dot,index)=>{
+
+      dot.classList.toggle(
+        "active",
+        index===heroIndex
+      );
+
+    });
+
+}
+
+
+function heroMove(direction){
+
+  heroIndex += direction;
+
+  if(heroIndex < 0){
+
+    heroIndex =
+      heroSlides.length-1;
+
+  }
+
+  if(heroIndex >= heroSlides.length){
+
+    heroIndex=0;
+
+  }
+
+  updateHero();
+
+}
+
+
+/* HERO AUTOPLAY */
+
+setInterval(()=>{
+
+  heroMove(1);
+
+},5000);
+
+
+
+/* =========================================================
+   HERO SWIPE
+========================================================= */
+
+let heroStartX=0;
+
+const heroSlider =
+  document.getElementById("heroSlider");
+
+
+heroSlider.addEventListener(
+  "touchstart",
+  e=>{
+
+    heroStartX =
+      e.touches[0].clientX;
+
+  },
+  {passive:true}
+);
+
+
+heroSlider.addEventListener(
+  "touchend",
+  e=>{
+
+    const endX =
+      e.changedTouches[0].clientX;
+
+    const distance =
+      endX-heroStartX;
+
+    if(Math.abs(distance)>50){
+
+      heroMove(
+        distance<0 ? 1 : -1
+      );
+
+    }
+
+  },
+  {passive:true}
+);
+
+
+createHeroDots();
+updateHero();
+
+
+
+/* =========================================================
+   PRODUCT SLIDER
+========================================================= */
+
+const productState={
+
+  oto:0,
+  fashion:0,
+  sepatu:0,
+  tas:0
+
+};
+
+
+const productTimer={};
+
+
+
+function getVisible(){
+
+  return window.innerWidth <= 560
+    ? 2
+    : window.innerWidth <= 950
+      ? 2
+      : 4;
+
+}
+
+
+
+function badgeClass(label){
+
+  if(label==="NEW")
+    return "new";
+
+  if(label==="BEST")
+    return "best";
+
+  if(label==="PROMO")
+    return "promo";
+
+  return "";
+
+}
+
+
+
+function productCard(product){
+
+  const
+    name=product[0],
+    price=product[1],
+    image=product[2],
+    category=product[3],
+    badge=product[4];
+
+  return `
+
+    <article class="card">
+
+      <div class="card-img">
+
+        <img
+          loading="lazy"
+          src="${image}"
+          alt="${name}"
+          onerror="
+            this.src='https://placehold.co/1000x1000/111/fff?text=ONESTREET77'
+          "
+        >
+
+        <span
+          class="badge ${badgeClass(badge)}">
+
+          ${badge}
+
+        </span>
+
+      </div>
+
+
+      <div class="card-body">
+
+        <div class="card-cat">
+
+          ${category}
+
+        </div>
+
+
+        <h3>
+          ${name}
+        </h3>
+
+
+        <div class="price">
+          ${price}
+        </div>
+
+
+        <div class="buy">
+
+          <a
+            href="${image}"
+            target="_blank">
+
+            Lihat Foto
+
+          </a>
+
+
+          <a
+            href="${SHOPEE_URL}"
+            target="_blank"
+            rel="noopener">
+
+            Shopee
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </article>
+
+  `;
+
+}
+
+
+
+function renderProducts(id){
+
+  const container =
+    document.getElementById(id);
+
+  const arr =
+    products[id];
+
+  container.innerHTML =
+    arr.map(productCard).join("");
+
+  createProductDots(id);
+
+  updateProductSlider(id);
+
+  setupProductSwipe(id);
+
+}
+
+
+
+function updateProductSlider(id){
+
+  const container =
+    document.getElementById(id);
+
+  const visible =
+    getVisible();
+
+  const maxIndex =
+    Math.max(
+      0,
+      products[id].length-visible
+    );
+
+
+  if(productState[id] > maxIndex)
+    productState[id]=0;
+
+
+  const cardWidth =
+    container.parentElement
+      .clientWidth;
+
+
+  const gap =
+    window.innerWidth <= 560
+      ? 9
+      : 14;
+
+
+  const singleWidth =
+    (
+      container.parentElement.clientWidth
+      - gap*(visible-1)
+    ) / visible;
+
+
+  container.style.transform =
+    `translateX(-${
+      productState[id] *
+      (singleWidth+gap)
+    }px)`;
+
+
+  document
+    .querySelectorAll(
+      `#dots-${id} .product-dot`
+    )
+    .forEach(
+      (dot,index)=>{
+
+        dot.classList.toggle(
+          "active",
+          index===productState[id]
+        );
+
+      }
+    );
+
+}
+
+
+
+function createProductDots(id){
+
+  const dots =
+    document.getElementById(
+      `dots-${id}`
+    );
+
+  dots.innerHTML="";
+
+  const visible =
+    getVisible();
+
+  const pages =
+    Math.max(
+      1,
+      products[id].length-visible+1
+    );
+
+
+  for(let i=0;i<pages;i++){
+
+    const dot =
+      document.createElement("button");
+
+    dot.className =
+      "product-dot";
+
+    dot.onclick=()=>{
+
+      productState[id]=i;
+
+      updateProductSlider(id);
+
+    };
+
+    dots.appendChild(dot);
+
+  }
+
+}
+
+
+
+function productMove(id,direction){
+
+  const visible =
+    getVisible();
+
+  const max =
+    Math.max(
+      0,
+      products[id].length-visible
+    );
+
+
+  productState[id]+=direction;
+
+
+  if(productState[id]<0)
+    productState[id]=max;
+
+
+  if(productState[id]>max)
+    productState[id]=0;
+
+
+  updateProductSlider(id);
+
+}
+
+
+
+function setupProductSwipe(id){
+
+  const windowEl =
+    document.getElementById(
+      `window-${id}`
+    );
+
+  let startX=0;
+
+
+  windowEl.addEventListener(
+    "touchstart",
+    e=>{
+
+      startX =
+        e.touches[0].clientX;
+
+    },
+    {passive:true}
+  );
+
+
+  windowEl.addEventListener(
+    "touchend",
+    e=>{
+
+      const endX =
+        e.changedTouches[0].clientX;
+
+      const distance =
+        endX-startX;
+
+
+      if(Math.abs(distance)>45){
+
+        productMove(
+          id,
+          distance<0 ? 1 : -1
+        );
+
+      }
+
+    },
+    {passive:true}
+  );
+
+}
+
+
+
+/* =========================================================
+   RENDER SEMUA PRODUK
+========================================================= */
+
+Object.keys(products)
+  .forEach(id=>{
+
+    renderProducts(id);
+
+  });
+
+
+
+/* =========================================================
+   AUTOPLAY PRODUK
+========================================================= */
+
+function startProductAutoplay(id){
+
+  clearInterval(
+    productTimer[id]
+  );
+
+
+  productTimer[id]=
+    setInterval(()=>{
+
+      productMove(id,1);
+
+    },4500);
+
+}
+
+
+Object.keys(products)
+  .forEach(id=>{
+
+    startProductAutoplay(id);
+
+  });
+
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+window.addEventListener(
+  "resize",
+  ()=>{
+
+    Object.keys(products)
+      .forEach(id=>{
+
+        createProductDots(id);
+
+        updateProductSlider(id);
+
+      });
+
+  }
+);
+
+
+
+/* =========================================================
+   PAUSE SAAT MOUSE DI ATAS PRODUK
+========================================================= */
+
+document
+  .querySelectorAll(".product-slider")
+  .forEach(slider=>{
+
+    const id =
+      slider.dataset.category;
+
+
+    slider.addEventListener(
+      "mouseenter",
+      ()=>{
+
+        clearInterval(
+          productTimer[id]
+        );
+
+      }
+    );
+
+
+    slider.addEventListener(
+      "mouseleave",
+      ()=>{
+
+        startProductAutoplay(id);
+
+      }
+    );
+
+  });
+
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+function openModal(){
+
+  document
+    .getElementById("modal")
+    .classList.add("show");
+
+  setTimeout(()=>{
+
+    document
+      .getElementById("searchInput")
+      .focus();
+
+  },100);
+
+}
+
+
+function closeModal(){
+
+  document
+    .getElementById("modal")
+    .classList.remove("show");
+
+}
+
+
+function searchProduct(){
+
+  const q =
+    document
+      .getElementById("searchInput")
+      .value
+      .toLowerCase()
+      .trim();
+
+
+  const result =
+    document.getElementById(
+      "searchResult"
+    );
+
+
+  if(!q){
+
+    result.innerHTML =
+      "Masukkan nama produk terlebih dahulu.";
+
+    return;
+
+  }
+
+  const found =
+    Object
+      .values(products)
+      .flat()
+      .filter(product=>{
+
+        return (
+
+          product[0]
+            .toLowerCase()
+            .includes(q)
+
+          ||
+
+          product[3]
+            .toLowerCase()
+            .includes(q)
+
+        );
+
+      });
+
+
+  if(found.length){
+
+    result.innerHTML = `
+
+      <strong style="color:#ff1720">
+        ${found.length}
+      </strong>
+
+      produk ditemukan.
+
+      <br><br>
+
+      ${found
+        .slice(0,5)
+        .map(p=>`
+          • ${p[0]} —
+          <strong>${p[1]}</strong>
+        `)
+        .join("<br>")}
+
+    `;
+
+  }else{
+
+    result.innerHTML = `
+
+      Produk
+      <strong>${q}</strong>
+      belum ada di katalog.
+
+      <br><br>
+
+      Silakan cari langsung di
+      Shopee ONESTREET77.
+
+    `;
+
+  }
+
+}
+
+
+
+/* =========================================================
+   CLOSE MODAL
+========================================================= */
+
+document
+  .getElementById("modal")
+  .addEventListener(
+    "click",
+    e=>{
+
+      if(e.target.id==="modal"){
+
+        closeModal();
+
+      }
+
+    }
+  );
+
+
+/* ENTER UNTUK SEARCH */
+
+document
+  .getElementById("searchInput")
+  .addEventListener(
+    "keydown",
+    e=>{
+
+      if(e.key==="Enter"){
+
+        searchProduct();
+
+      }
+
+    }
+  );
+
+
 </script>
+
 </body>
 </html>
