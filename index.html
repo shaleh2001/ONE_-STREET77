@@ -525,7 +525,166 @@ h2{
 
   will-change:transform;
 }
+/* =====================================================
+   ONESTREET77 PRODUCT SLIDER FIX
+===================================================== */
 
+.product-slider{
+  position:relative;
+  width:100%;
+  margin-top:25px;
+  padding:0 5px 45px;
+}
+
+.product-window{
+  width:100%;
+  overflow:hidden;
+  position:relative;
+}
+
+.product-window .products{
+  display:flex !important;
+  flex-wrap:nowrap !important;
+  gap:14px;
+  width:max-content;
+  transition:transform .55s cubic-bezier(.22,.61,.36,1);
+  will-change:transform;
+}
+
+.product-window .card{
+  flex:0 0 calc((min(1240px, 100vw - 40px) - 42px) / 4);
+  width:calc((min(1240px, 100vw - 40px) - 42px) / 4);
+  min-width:0;
+}
+
+/* TOMBOL KIRI KANAN */
+
+.product-arrow{
+  position:absolute;
+  top:43%;
+  transform:translateY(-50%);
+  z-index:10;
+
+  width:42px;
+  height:42px;
+
+  border-radius:50%;
+  border:1px solid #555;
+
+  background:rgba(0,0,0,.88);
+  color:#fff;
+
+  font-size:25px;
+  line-height:1;
+
+  cursor:pointer;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  transition:.25s;
+}
+
+.product-arrow:hover{
+  background:#ff1720;
+  border-color:#ff1720;
+  transform:translateY(-50%) scale(1.08);
+}
+
+.product-prev{
+  left:-12px;
+}
+
+.product-next{
+  right:-12px;
+}
+
+
+/* DOT SLIDER */
+
+.product-dots{
+  position:absolute;
+  bottom:8px;
+  left:0;
+  right:0;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:7px;
+}
+
+.product-dot{
+  width:7px;
+  height:7px;
+
+  padding:0;
+  border:0;
+  border-radius:50%;
+
+  background:#444;
+  cursor:pointer;
+
+  transition:.25s;
+}
+
+.product-dot.active{
+  width:22px;
+  border-radius:10px;
+  background:#ff1720;
+}
+
+
+/* HP */
+
+@media(max-width:950px){
+
+  .product-window .card{
+    flex:0 0 calc((100vw - 70px) / 2);
+    width:calc((100vw - 70px) / 2);
+  }
+
+  .product-arrow{
+    display:flex;
+  }
+
+}
+
+
+/* HP KECIL */
+
+@media(max-width:560px){
+
+  .product-slider{
+    margin-top:18px;
+    padding-bottom:38px;
+  }
+
+  .product-window .products{
+    gap:9px;
+  }
+
+  .product-window .card{
+    flex:0 0 calc((100vw - 45px) / 2);
+    width:calc((100vw - 45px) / 2);
+  }
+
+  .product-arrow{
+    width:34px;
+    height:34px;
+    font-size:20px;
+  }
+
+  .product-prev{
+    left:-7px;
+  }
+
+  .product-next{
+    right:-7px;
+  }
+
+}
 .card{
   flex:0 0 calc((100% - 42px)/4);
 
@@ -1510,30 +1669,24 @@ h2{
      OTOMOTIF
 ======================================================= -->
 
-<section
-  class="section"
-  id="otomitif">
+<section class="section" id="otomotif">
 
   <div class="section-head">
-     
-     <div>
 
-      <div class="kicker">
-        01 / MOTORCYCLE
-      </div>
-
-      <h2>
-        Otomotif </h2>
-
+    <div>
+      <div class="kicker">01 / MOTORCYCLE</div>
+      <h2>Otomotif</h2>
     </div>
 
     <p>
-      Sparepart, aksesori dan gear motor
-      untuk riding, touring dan upgrade tampilan.
+      Sparepart, aksesori dan gear motor untuk riding,
+      touring dan upgrade tampilan.
     </p>
 
   </div>
-   
+
+
+  <!-- SLIDER OTOMOTIF -->
 
   <div class="product-slider" data-category="oto">
 
@@ -1543,12 +1696,16 @@ h2{
       ‹
     </button>
 
+
     <div class="product-window" id="window-oto">
 
-      <div 
-      class="products" id="products-oto"></div>
+      <div
+        class="products"
+        id="products-oto">
+      </div>
 
     </div>
+
 
     <button
       class="product-arrow product-next"
@@ -1556,8 +1713,11 @@ h2{
       ›
     </button>
 
-    <div 
-       class="products" id="products-oto"></div>
+
+    <div
+      class="product-dots"
+      id="dots-oto">
+    </div>
 
   </div>
 
@@ -1568,22 +1728,13 @@ h2{
      FASHION
 ======================================================= -->
 
-<section
-  class="sections"
-  id="fashion">
+<section class="section" id="fashion">
 
   <div class="section-head">
 
     <div>
-
-      <div class="kicker">
-        02 / STREETWEAR
-      </div>
-
-      <h2>
-        Fashion
-      </h2>
-
+      <div class="kicker">02 / STREETWEAR</div>
+      <h2>Fashion</h2>
     </div>
 
     <p>
@@ -1594,18 +1745,13 @@ h2{
   </div>
 
 
-  <div
-    class="product-slider"
-    data-category="fashion">
+  <div class="product-slider" data-category="fashion">
 
     <button
       class="product-arrow product-prev"
       onclick="productMove('fashion',-1)">
-
       ‹
-
     </button>
-
 
     <div
       class="product-window"
@@ -1613,25 +1759,20 @@ h2{
 
       <div
         class="products"
-        id="fashion">
-
+        id="products-fashion">
       </div>
 
     </div>
 
-
     <button
       class="product-arrow product-next"
       onclick="productMove('fashion',1)">
-
       ›
-
     </button>
 
-
     <div
-      class="products"
-      id="products-fashion"></div>
+      class="product-dots"
+      id="dots-fashion">
     </div>
 
   </div>
@@ -1639,49 +1780,34 @@ h2{
 </section>
 
 
-
 <!-- =======================================================
      SEPATU
 ======================================================= -->
 
-<section
-  class="sectios"
-  id="sepatu">
+<section class="section" id="sepatu">
 
   <div class="section-head">
 
     <div>
-
-      <div class="kicker">
-        03 / FOOTWEAR
-      </div>
-
-      <h2>
-        Sepatu
-      </h2>
-
+      <div class="kicker">03 / FOOTWEAR</div>
+      <h2>Sepatu</h2>
     </div>
 
     <p>
-      Sneakers dan footwear sporty
-      untuk melengkapi gaya ONESTREET77.
+      Sneakers dan footwear sporty untuk
+      melengkapi gaya ONESTREET77.
     </p>
 
   </div>
 
 
-  <div
-    class="product-slider"
-    data-category="sepatu">
+  <div class="product-slider" data-category="sepatu">
 
     <button
       class="product-arrow product-prev"
       onclick="productMove('sepatu',-1)">
-
       ‹
-
     </button>
-
 
     <div
       class="product-window"
@@ -1689,25 +1815,20 @@ h2{
 
       <div
         class="products"
-        id="sepatu">
-
+        id="products-sepatu">
       </div>
 
     </div>
 
-
     <button
       class="product-arrow product-next"
       onclick="productMove('sepatu',1)">
-
       ›
-
     </button>
 
-<div
-   class="products"
-      id="products-sepatu></div>
-
+    <div
+      class="product-dots"
+      id="dots-sepatu">
     </div>
 
   </div>
@@ -1715,49 +1836,34 @@ h2{
 </section>
 
 
-
 <!--=======================================================
      TAS
 ======================================================= -->
 
-<section
-  class="section"
-  id="tas">
+<section class="section" id="tas">
 
   <div class="section-head">
 
     <div>
-
-      <div class="kicker">
-        04 / DAILY CARRY
-      </div>
-
-      <h2>
-        Tas
-      </h2>
-
+      <div class="kicker">04 / DAILY CARRY</div>
+      <h2>Tas</h2>
     </div>
 
     <p>
-      Backpack, sling bag dan tas harian
-      untuk kerja, kuliah, riding dan aktivitas urban.
+      Backpack, sling bag dan tas untuk
+      kerja, riding dan aktivitas urban.
     </p>
 
   </div>
 
 
-  <div
-    class="product-slider"
-    data-category="tas">
+  <div class="product-slider" data-category="tas">
 
     <button
       class="product-arrow product-prev"
       onclick="productMove('tas',-1)">
-
       ‹
-
     </button>
-
 
     <div
       class="product-window"
@@ -1765,27 +1871,21 @@ h2{
 
       <div
         class="products"
-        id="tas">
-
+        id="products-tas">
       </div>
 
     </div>
 
-
     <button
       class="product-arrow product-next"
       onclick="productMove('tas',1)">
-
       ›
-
     </button>
 
-
     <div
-      class="products"
-      id="products-tas"></div>
-
-    </div>
+      class="product-dots"
+      id="dots-tas">
+      </div>
 
   </div>
 
@@ -2366,182 +2466,143 @@ createHeroDots();
 updateHero();
 
 
+/* =====================================================
+   ONESTREET77 PRODUCT SLIDER
+===================================================== */
 
-/* =========================================================
-   PRODUCT SLIDER
-========================================================= */
-
-const productState={
-
-  oto:0,
-  fashion:0,
-  sepatu:0,
-  tas:0
-
+const sliderPosition = {
+  oto: 0,
+  fashion: 0,
+  sepatu: 0,
+  tas: 0
 };
 
 
-const productTimer={};
+/* JUMLAH KARTU YANG TERLIHAT */
 
+function visibleProducts(){
 
+  if(window.innerWidth <= 950){
+    return 2;
+  }
 
-function getVisible(){
-
-  return window.innerWidth <= 560
-    ? 2
-    : window.innerWidth <= 950
-      ? 2
-      : 4;
-
+  return 4;
 }
 
 
-
-function badgeClass(label){
-
-  if(label==="NEW")
-    return "new";
-
-  if(label==="BEST")
-    return "best";
-
-  if(label==="PROMO")
-    return "promo";
-
-  return "";
-
-}
-
-
-
-function productCard(product){
-
-  const
-    name=product[0],
-    price=product[1],
-    image=product[2],
-    category=product[3],
-    badge=product[4];
-
-  return `
-
-    <article class="card">
-
-      <div class="card-img">
-
-        <img
-          loading="lazy"
-          src="${image}"
-          alt="${name}"
-          onerror="
-            this.src='https://placehold.co/1000x1000/111/fff?text=ONESTREET77'
-          "
-        >
-
-        <span
-          class="badge ${badgeClass(badge)}">
-
-          ${badge}
-
-        </span>
-
-      </div>
-
-
-      <div class="card-body">
-
-        <div class="card-cat">
-
-          ${category}
-
-        </div>
-
-
-        <h3>
-          ${name}
-        </h3>
-
-
-        <div class="price">
-          ${price}
-        </div>
-
-
-        <div class="buy">
-
-          <a
-            href="${image}"
-            target="_blank">
-
-            Lihat Foto
-
-          </a>
-
-
-          <a
-            href="${SHOPEE_URL}"
-            target="_blank"
-            rel="noopener">
-
-            Shopee
-
-          </a>
-
-        </div>
-
-      </div>
-
-    </article>
-
-  `;
-
-}
-
-
+/* RENDER PRODUK */
 
 function renderProducts(id){
 
   const container =
-    document.getElementById(id);
+    document.getElementById("products-" + id);
 
-  const arr =
-    products[id];
+  if(!container) return;
 
   container.innerHTML =
-    arr.map(productCard).join("");
+    products[id].map(p => {
 
-  createProductDots(id);
+      return `
+        <article class="card">
 
-  updateProductSlider(id);
+          <div class="card-img">
 
-  setupProductSwipe(id);
+            <img
+              loading="lazy"
+              src="${p[2]}"
+              alt="${p[0]}"
+              onerror="
+                this.src='https://placehold.co/800x800/111/fff?text=ONESTREET77'
+              "
+            >
+
+            <span class="badge">
+              Pilihan
+            </span>
+
+          </div>
+
+
+          <div class="card-body">
+
+            <div class="card-cat">
+              ${p[3]}
+            </div>
+
+            <h3>
+              ${p[0]}
+            </h3>
+
+            <div class="price">
+              ${p[1]}
+            </div>
+
+
+            <div class="buy">
+
+              <a
+                href="${p[2]}"
+                target="_blank">
+                Lihat Foto
+              </a>
+
+              <a
+                href="https://shopee.co.id/"
+                target="_blank">
+                Shopee
+              </a>
+
+            </div>
+
+          </div>
+
+        </article>
+      `;
+
+    }).join("");
+
+  createDots(id);
+
+  updateSlider(id);
 
 }
 
 
+/* UPDATE SLIDER */
 
-function updateProductSlider(id){
+function updateSlider(id){
 
   const container =
-    document.getElementById(id);
+    document.getElementById(
+      "products-" + id
+    );
+
+  if(!container) return;
+
 
   const visible =
-    getVisible();
+    visibleProducts();
 
-  const maxIndex =
+  const total =
+    products[id].length;
+
+
+  const maxPosition =
     Math.max(
       0,
-      products[id].length-visible
+      total - visible
     );
 
 
-  if(productState[id] > maxIndex)
-    productState[id]=0;
+  if(sliderPosition[id] > maxPosition){
+    sliderPosition[id] = 0;
+  }
 
 
-  const cardWidth =
-    container.parentElement
-      .clientWidth;
+  const card =
+    container.querySelector(".card");
+
+  if(!card) return;
 
 
   const gap =
@@ -2550,161 +2611,191 @@ function updateProductSlider(id){
       : 14;
 
 
-  const singleWidth =
-    (
-      container.parentElement.clientWidth
-      - gap*(visible-1)
-    ) / visible;
+  const cardWidth =
+    card.offsetWidth;
+
+
+  const move =
+    (cardWidth + gap) *
+    sliderPosition[id];
 
 
   container.style.transform =
-    `translateX(-${
-      productState[id] *
-      (singleWidth+gap)
-    }px)`;
+    `translateX(-${move}px)`;
 
 
-  document
-    .querySelectorAll(
-      `#dots-${id} .product-dot`
-    )
-    .forEach(
-      (dot,index)=>{
-
-        dot.classList.toggle(
-          "active",
-          index===productState[id]
-        );
-
-      }
-    );
+  updateDots(id);
 
 }
 
 
+/* NEXT / PREVIOUS */
 
-function createProductDots(id){
+function productMove(id,direction){
+
+  const visible =
+    visibleProducts();
+
+  const max =
+    Math.max(
+      0,
+      products[id].length - visible
+    );
+
+
+  sliderPosition[id] += direction;
+
+
+  if(
+    sliderPosition[id] >
+    max
+  ){
+
+    sliderPosition[id] = 0;
+
+  }
+
+
+  if(
+    sliderPosition[id] < 0
+  ){
+
+    sliderPosition[id] = max;
+
+  }
+
+
+  updateSlider(id);
+
+}
+
+
+/* DOT */
+
+function createDots(id){
 
   const dots =
     document.getElementById(
-      `dots-${id}`
+      "dots-" + id
     );
 
-  dots.innerHTML="";
+  if(!dots) return;
+
+
+  dots.innerHTML = "";
+
 
   const visible =
-    getVisible();
+    visibleProducts();
+
 
   const pages =
     Math.max(
       1,
-      products[id].length-visible+1
+      products[id].length -
+      visible + 1
     );
 
 
-  for(let i=0;i<pages;i++){
+  for(
+    let i = 0;
+    i < pages;
+    i++
+  ){
 
-    const dot =
+    const button =
       document.createElement("button");
 
-    dot.className =
+
+    button.className =
       "product-dot";
 
-    dot.onclick=()=>{
 
-      productState[id]=i;
+    button.onclick = function(){
 
-      updateProductSlider(id);
+      sliderPosition[id] = i;
+
+      updateSlider(id);
 
     };
 
-    dots.appendChild(dot);
+
+    dots.appendChild(button);
 
   }
 
 }
 
 
+/* UPDATE DOT */
 
-function productMove(id,direction){
+function updateDots(id){
 
-  const visible =
-    getVisible();
-
-  const max =
-    Math.max(
-      0,
-      products[id].length-visible
+  const dots =
+    document.querySelectorAll(
+      "#dots-" + id +
+      " .product-dot"
     );
 
 
-  productState[id]+=direction;
+  dots.forEach(
+    (dot,index)=>{
 
+      dot.classList.toggle(
+        "active",
+        index ===
+        sliderPosition[id]
+      );
 
-  if(productState[id]<0)
-    productState[id]=max;
-
-
-  if(productState[id]>max)
-    productState[id]=0;
-
-
-  updateProductSlider(id);
-
-}
-
-
-
-function setupProductSwipe(id){
-
-  const windowEl =
-    document.getElementById(
-      `window-${id}`
-    );
-
-  let startX=0;
-
-
-  windowEl.addEventListener(
-    "touchstart",
-    e=>{
-
-      startX =
-        e.touches[0].clientX;
-
-    },
-    {passive:true}
-  );
-
-
-  windowEl.addEventListener(
-    "touchend",
-    e=>{
-
-      const endX =
-        e.changedTouches[0].clientX;
-
-      const distance =
-        endX-startX;
-
-
-      if(Math.abs(distance)>45){
-
-        productMove(
-          id,
-          distance<0 ? 1 : -1
-        );
-
-      }
-
-    },
-    {passive:true}
+    }
   );
 
 }
 
 
+/* LOAD SEMUA KATALOG */
 
+Object.keys(products).forEach(
+  id => renderProducts(id)
+);
+
+
+/* RESPONSIVE */
+
+window.addEventListener(
+  "resize",
+  function(){
+
+    Object.keys(products)
+      .forEach(id => {
+
+        createDots(id);
+
+        updateSlider(id);
+
+      });
+
+  }
+);
+
+
+/* AUTO SLIDER */
+
+setInterval(
+  function(){
+
+    Object.keys(products)
+      .forEach(id => {
+
+        productMove(id,1);
+
+      });
+
+  },
+  4500
+);
+
+   
 /* =========================================================
    RENDER SEMUA PRODUK
 ========================================================= */
